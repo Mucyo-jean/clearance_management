@@ -1,0 +1,29 @@
+# ---- Framework ----
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# ---- Database ----
+sqlalchemy>=2.0.36
+alembic>=1.14.0
+psycopg2-binary>=2.9.10        # -binary avoids needing a C compiler on Windows
+
+# ---- Validation & configuration ----
+pydantic>=2.9.0
+pydantic-settings>=2.6.0       # split out of pydantic in v2
+email-validator>=2.2.0         # required by pydantic EmailStr
+
+# ---- Security ----
+pyjwt>=2.10.0                  # preferred over python-jose: smaller, actively maintained
+passlib[bcrypt]>=1.7.4
+bcrypt<4.1                     # PIN: passlib 1.7.4 reads bcrypt.__about__, removed in 4.1+
+
+# ---- File upload ----
+python-multipart>=0.0.12       # FastAPI needs this to parse multipart form data
+
+# ---- PDF ----
+reportlab>=4.2.0               # pure Python; WeasyPrint needs GTK, painful on Windows
+
+# ---- Testing ----
+pytest>=8.3.0
+pytest-cov>=6.0.0
+httpx>=0.28.0
